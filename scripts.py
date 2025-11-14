@@ -32,10 +32,29 @@ def add_commendation(schoolkid):
 
     random_lesson = random.choice(our_lesson)
 
+    if not random_lesson:
+        print('Не найден урок для похвалы.')
+        return
+
+        commendation_list = [
+        'Ты растешь над собой!',
+        'С каждым разом у тебя получается всё лучше!',
+        'Прекрасное начало!',
+        'Ты сегодня прыгнул выше головы!',
+        'Прекрасное начало',
+        'Именно этого я давно ждал от тебя!',
+        'Ты меня приятно удивил!',
+        'Мы с тобой не зря поработали!',
+        'Теперь у тебя точно все получится!',
+        'Очень хороший ответ!',
+        'Молодец!',
+        'Я тобой горжусь!',
+        'Очень хороший ответ!']
+
 	Commendation.objects.create(
     	teacher=random_lesson.teacher, 
     	subject=random_lesson.subject, 
     	created=random_lesson.date, 
-    	text='Ты сегодня прыгнул выше головы!', 
+    	text=random.choice(commendation_list), 
     	schoolkid=schoolkid
     	)
